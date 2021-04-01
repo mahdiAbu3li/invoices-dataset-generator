@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel='stylesheet' type='text/css' href='style.css' />
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- <div id="container" style="height: 500px; width: 500px; background-color: aqua;">
+        <h1>my name is mahdi</h1>
+    </div>
+    <button id="save">Save as Image</button>
+    <p id="preview"></p>
+ -->
+    <script src="node_modules\faker\dist\faker.js" type="text/javascript"></script>
+    <!-- <script src="node_modules\csv-writer\dist\index.js" type="text/javascript"></script> -->
+    <script>
+        var randomName = faker.name.findName(); // Caitlyn Kerluke
+        var randomEmail = faker.internet.email(); // Rusty@arne.info
+        var randomCard = faker.helpers.createCard(); // random contact card containing many properties
+
+    </script>
+    <div class="con">
+        <div id="page-wrap" style="z-index: 5;">
+            <img src="i6.jpg" style="z-index: 55; opacity: .2; position: absolute;">
+            <textarea id="header">INVOICE</textarea>
+            <!-- <div class="circle"
+                style="clip-path: circle(49% at 29% 13%); background-color: aqua; width: 300px; height: 500px; position: absolute; z-index: 1; opacity: .2;">
+            </div> -->
+
+            <div id="identity">
+
+                <div id="address">
+                    <div id="name">Chris Coyier</div>
+                    <div id="address1">Appleville, WI 53719</div>
+                    Phone: <div style="display: inline-block;" id="phone">(555) 555-5555</div>
+
+
+
+                </div>
+
+
+
+                <img id="image" src="./i3.png" style="float: right; width: 20%; height: auto;" alt="logo" />
+                <div id="logo">
+
+                    <div id="logoctr">
+                        <a href="javascript:;" id="change-logo" title="Change logo">Change Logo</a>
+                        <a href="javascript:;" id="save-logo" title="Save changes">Save</a>
+                        |
+                        <a href="javascript:;" id="delete-logo" title="Delete logo">Delete Logo</a>
+                        <a href="javascript:;" id="cancel-logo" title="Cancel changes">Cancel</a>
+                    </div>
+
+                    <div id="logohelp">
+                        <input id="imageloc" type="text" size="50" value="" /><br />
+                        (max width: 540px, max height: 100px)
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div style="clear:both"></div>
+
+            <div id="customer">
+
+                <div id="companyName" style="display: inline-block; margin-left: 20px; ">Widget Corp.
+                    c/o Steve Widget</div>
+
+                <table id="meta" style="margin: 20px;">
+                    <tr>
+                        <td class="meta-head">Invoice #</td>
+                        <td>
+                            <div id="invoiceNumber">1</div>
+                        </td>
+                    </tr>
+                    <tr>
+
+                        <td class="meta-head">Date</td>
+                        <td>
+                            <div id="date">December 15, 2009</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="meta-head">Amount Due</td>
+                        <td>
+                            $<div style="display: inline-block;" id="due">$875.00</div>
+                        </td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+            <table id="items" style="margin: 20px; width: 95%;">
+
+                <tr>
+                    <th>Item</th>
+                    <th>Description</th>
+                    <th>Unit Cost</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+
+                <tr class="item-row">
+                    <td class="item-name">
+                        <div class="delete-wpr">
+                            <div id="item">item1</div>
+                        </div>
+                    </td>
+                    <td class="description">
+                        <div id="itemDiscription"></div>
+                    </td>
+                    <td>
+                        $<div style="display: inline-block;" id="cost">1</div>
+                    </td>
+                    <td>
+                        <div id="qty">1</div>
+                    </td>
+                    <td><span class="price" id="price">$650.00</span></td>
+                </tr>
+
+
+
+                <tr class="item-row">
+                    <td class="item-name">
+                        <div class="delete-wpr">
+                            <div id="item1">item1</div>
+                        </div>
+                    </td>
+                    <td class="description">
+                        <div id="itemDiscription1"></div>
+                    </td>
+                    <td>
+                        $<div style="display: inline-block;" id="cost1">1</div>
+                    </td>
+                    <td>
+                        <div id="qty1">1</div>
+                    </td>
+                    <td><span class="price1" id="price">$650.00</span></td>
+                </tr>
+
+                <!-- <tr class="item-row">
+                <td class="item-name">
+                    <div class="delete-wpr"><textarea>SSL Renewals</textarea><a class="delete" href="javascript:;"
+                            title="Remove row">X</a></div>
+                </td>
+
+                <td class="description">
+                    <textarea>Yearly renewals of SSL certificates on main domain and several subdomains</textarea></td>
+                <td><textarea class="cost">$75.00</textarea></td>
+                <td><textarea class="qty">3</textarea></td>
+                <td><span class="price">$225.00</span></td>
+            </tr> -->
+
+                <!-- <tr id="hiderow">
+                <td colspan="5"><a id="addrow" href="javascript:;" title="Add a row">Add a row</a></td>
+            </tr> -->
+
+                <tr>
+                    <td colspan="2" class="blank"> </td>
+                    <td colspan="2" class="total-line">Subtotal</td>
+                    <td class="total-value">
+                        $<div style="display: inline-block;" id="subtotal">$875.00</div>
+                    </td>
+                </tr>
+                <tr>
+
+                    <td colspan="2" class="blank"> </td>
+                    <td colspan="2" class="total-line">Total</td>
+                    <td class="total-value">
+                        $<div style="display: inline-block;" id="total">$875.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="blank"> </td>
+                    <td colspan="2" class="total-line">Amount Paid</td>
+
+                    <td class="total-value">$<div style="display: inline-block;" id="paid">$0.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="blank"> </td>
+                    <td colspan="2" class="total-line balance">Balance Due</td>
+                    <td class="total-value balance">
+                        $<div style="display: inline-block;" class="due" id="due1">$875.00</div>
+                    </td>
+                </tr>
+
+            </table>
+
+            <div id="terms">
+                <h5>Terms</h5>
+                <textarea>NET 30 Days. Finance Charge of 1.5% will be made on unpaid balances after 30 days.</textarea>
+            </div>
+
+        </div>
+    </div>
+
+
+    <button id="save">Save as Image</button>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"
+        integrity="sha512-OqcrADJLG261FZjar4Z6c4CfLqd861A3yPNMb+vRQ2JwzFT49WT4lozrh3bcKxHxtDTgNiqgYbEUStzvZQRfgQ=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas2image@1.0.5/canvas2image.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+
+            $("#save").click(function () {
+
+                var c = 0;
+                const fun = () => {
+                    const name = faker.name.findName();
+                    const address1 = faker.address.streetAddress();
+                    const phone = faker.phone.phoneNumber();
+                    const date = faker.date.past();
+                    const companyName = faker.company.companyName();
+                    const item = faker.commerce.productName();
+                    const itemDiscription = faker.commerce.productDescription();
+                    const cost = faker.commerce.price();
+                    const qty = faker.random.number();
+                    const price = faker.random.number();
+                    const item1 = faker.commerce.productName();
+                    const itemDiscription1 = faker.commerce.productDescription();
+                    const cost1 = faker.commerce.price();
+                    const qty1 = faker.random.number();
+                    const price1 = faker.random.number();
+                    const invoiceNumber = faker.random.number();
+                    const due = faker.commerce.price();
+                    const due1 = faker.commerce.price();
+                    const subtotal = faker.commerce.price();
+                    const total = faker.commerce.price();
+                    const paid = faker.commerce.price();
+                    // const image1 = faker.image.image();
+
+                    // $.ajax({
+                    //     url: 'https://randomuser.me/api/?inc=picture',
+                    //     dataType: 'json',
+                    //     success: function (data) {
+                    //         console.log(typeof data);
+                    //     }
+                    // });
+                    // const img = data.p;
+                    // alert(data)
+                    var data = {
+                        "name": name,
+                        "address": address1,
+                        "phone": phone,
+                        "date": date,
+                        "companyName": companyName,
+                        "invoiceNumber": invoiceNumber,
+                        "due": due,
+                        "due1": due1,
+                        "subtotal": subtotal,
+                        "total": total,
+                        "paid": paid,
+                    }
+                    var jsonData = JSON.stringify(data);
+                    // var fileName = "download (" + c + ").json";
+                    function download(content, fileName, contentType) {
+                        var a = document.createElement("a");
+                        var file = new Blob([content], { type: contentType });
+                        a.href = URL.createObjectURL(file);
+                        a.download = fileName;
+                        a.click();
+                    }
+
+                    download(jsonData, "download.json", 'json');
+
+                    $("#name").text(name);
+                    $("#address1").text(address1);
+                    $("#phone").text(phone);
+                    $("#date").text(date);
+                    $("#companyName").text(companyName);
+                    $("#item").text(item);
+                    $("#itemDiscription").text(itemDiscription);
+                    $("#cost").text(cost);
+                    $("#qty").text(qty);
+                    $("#price").text(price);
+                    $("#item1").text(item1);
+                    $("#itemDiscription1").text(itemDiscription1);
+                    $("#cost1").text(cost1);
+                    $("#qty1").text(qty1);
+                    $("#price1").text(price1);
+                    $("#invoiceNumber").text(invoiceNumber);
+                    $("#due").text(due);
+                    $("#due1").text(due1);
+                    $("#subtotal").text(subtotal);
+                    $("#total").text(total);
+                    $("#paid").text(paid);
+                    // $("#image").attr("src", image1);
+                    // $("#cost").text(faker.commerce.price());
+                    var elm = $("#page-wrap").get(0);
+                    html2canvas(elm).then(function (canvas) {
+                        var canWidth = canvas.width;
+                        var canHeight = canvas.height;
+                        var img = Canvas2Image.convertToImage(canvas, canWidth, canHeight);
+                        $("#preview").after(img);
+                        Canvas2Image.saveAsImage(canvas, null, null, ".jpg");
+                    });
+                };
+
+                // window.location.reload(false);
+                var x = setInterval(function () {
+                    fun();
+                }, 4000);
+
+                // Canvas2Image.saveAsImage(canvas, null, null, "jpg")
+            });
+        });
+
+    </script>
+</body>
+
+</html>
